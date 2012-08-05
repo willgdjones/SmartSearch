@@ -3,7 +3,7 @@ self.port.on('widgetClicked',function createURLList(storedURls){
 	var URLlist = $('#URLlist');
 	URLlist.empty();
 	storedURls.forEach( function(URL) {
-		URLlist.append(URL + "\n");
+		URLlist.prepend('<p>' + URL );
 	})
 	//URLlist.html(storedURls);
 
