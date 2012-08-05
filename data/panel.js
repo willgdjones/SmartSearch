@@ -17,18 +17,20 @@ self.port.on('widgetClicked',function createURLList(storedURls){
 	})
 	//create canvas element in the panel
 	var canvas = $('#canvasDiv canvas');
-	console.log(getMethods(canvas));
-
+	//set the canvas size
 	canvas.attr({
 		height: 500,
 		width: 1000
 	});
+
 	var context = canvas.get(0).getContext('2d');
 	context.beginPath();
-    context.moveTo(100, 150);
-    context.lineTo(450, 50);
-    context.stroke();
-
+        context.arc(300, 300, 50, 0, 2 * Math.PI, false);
+        context.fillStyle = "#8ED6FF";
+        context.fill();
+        context.lineWidth = 5;
+        context.strokeStyle = "black";
+        context.stroke();
 
 	//URLlist.html(storedURls);
 
