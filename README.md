@@ -1,5 +1,3 @@
-This is the translator add-on.  It contains:
+This is the SmartSearch documentation.
 
-* A program (lib/main.js).
-* A few tests.
-* Some meager documentation.
+It contains the progress I've made about the Firefox add-on I'm creating.
