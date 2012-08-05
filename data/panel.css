@@ -8,3 +8,10 @@
 #URLlist p {
 	color: black;
 }
+
+#canvasDiv {
+	padding: 10px;
+	margin: 10px;
+	border: solid 3px green;
+	background-color: white;
+}

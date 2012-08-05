@@ -5,8 +5,11 @@ self.port.on('widgetClicked',function createURLList(storedURls){
 	storedURls.forEach( function(URL) {
 		URLlist.prepend('<p>' + URL + '<p');
 	})
-	var canvasList = $('#canvasList');
-	
+	var canvas = $('#canvasDiv canvas');
+	canvas.attr({
+		height: 500,
+		width: 1000
+	});
 	//URLlist.html(storedURls);
 
 });
