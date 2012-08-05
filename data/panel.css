@@ -1,0 +1,10 @@
+#URLlist {
+	padding: 10px;
+	margin: 10px;
+	border: solid 3px red;
+	background-color: white;
+}
+
+#URLlist p {
+	color: black;
+}
