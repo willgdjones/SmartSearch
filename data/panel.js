@@ -1,4 +1,15 @@
+function drawCircleOn(paper,x,y) {
+	var circ = paper.circle(x, y, 40);
+	circ.attr({fill: "#8ED6FF", stroke: '#000', 'stroke-width': 5});
+	circ.hover( function(){
+		circ.animate({'stroke-width': 10},200);
+	} , function(){
+		circ.animate({'stroke-width': 5},200); 
+	});
+	
+	
 
+}
 
 
 
@@ -35,22 +46,7 @@ self.port.on('widgetClicked',function createURLList(storedURLs){
 	})
 
 	var paper = new Raphael(document.getElementById('raphaelDiv'),1000,1000);
-	var circ = paper.circle(250, 250, 40);  
-        circ.attr({fill: '#000', stroke: 'none'});
-
-    var text = paper.text(250, 250, 'Bye Bye Circle!')  
-	text.attr({opacity: 0, 'font-size': 12}).toBack();  
-
-	circ.node.onmouseover = function() {  
-    this.style.cursor = 'pointer';  
-	}
-
-	circ.node.onclick = function() {  
-    text.animate({opacity: 1}, 2000);  
-    circ.animate({opacity: 0}, 2000, function() {  
-        this.remove();  
-    });  
-	}   
+	drawCircleOn(paper,100,100);   
 
 
 
