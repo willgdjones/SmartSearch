@@ -1,11 +1,22 @@
 #URLlist {
+	width: 400px;
 	padding: 10px;
 	margin: 10px;
 	border: solid 3px red;
 	background-color: white;
+	float: left;
 }
 
-#URLlist p {
+#childURLs {
+	width: 400px;
+	padding: 10px;
+	margin: 10px;
+	border: solid 3px red;
+	background-color: white;
+	float:left;
+}
+
+#URLlist, #childURLs p {
 	color: black;
 }
 
@@ -14,4 +25,5 @@
 	margin: 10px;
 	border: solid 3px green;
 	background-color: white;
+	clear:both;
 }
