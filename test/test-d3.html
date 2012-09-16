@@ -13,8 +13,6 @@
 
     <script type="text/javascript">
 
-
-
         function createNodeData(URLObject) {
             var nodeData = [];
             i = 0;
@@ -40,7 +38,8 @@
             return linkData;
         };
 
-        function createForceDirectedLayout(nodeData,linkData,charge_value,distance_value) {
+        function createForceDirectedLayout(nodeData,linkData,svg,charge_value,distance_value)
+         {
             var force = d3.layout.force()
             .charge(charge_value)
             .distance(distance_value)
@@ -67,6 +66,7 @@
             .attr("cx", function(d) { return d.x; })
             .attr("cy", function(d) { return d.y; })
             .attr("r", 5)
+            .on("click", function() { console.log("clicked!")})
             .call(force.drag);
 
 
@@ -81,7 +81,8 @@
                 node
                 .attr("cx", function(d) { return d.x; })
                 .attr("cy", function(d) { return d.y; });
-            });};
+            });
+        };
 
         function createURLToIndex(URLObject) {
             url_to_index = {};
@@ -102,91 +103,79 @@
                             'url6': []
                         };
 
-        var index_to_url = {};
-
-
-
-
         var url_to_index = createURLToIndex(URLObject)
         var nodeData = createNodeData(URLObject);
         var linkData = createLinkData(URLObject);
-        
-
-            
-        // var test_linkData = [    {
-        //                         'source': url_to_index['url1'], 
-        //                         'target': url_to_index['url2']
-        //                     }, 
-        //                     {
-        //                         'source': url_to_index['url2'],
-        //                         'target': url_to_index['url3']
-        //                     },
-        //                     {
-        //                         'source': url_to_index['url2'],
-        //                         'target': url_to_index['url4']
-        //                     } 
-        //                 ];
-
-        
-
-        console.log(linkData);
-        // console.log(test_linkData);
-
-        // for (i in linkData) {
-        //     console.log(linkData[i] == test_linkData[i])
-        // }
-
-                        // How does do ^^^^^ get rendered as objects??????
-
-        // console.log(typeof url_to_index['url2']);
-
-        // console.log( [    {
-        //                         'source': url_to_index['url1'], 
-        //                         'target': url_to_index['url2']
-        //                     }, 
-        //                     {
-        //                         'source': url_to_index['url2'],
-        //                         'target': url_to_index['url3']
-        //                     },
-        //                     {
-        //                         'source': url_to_index['url2'],
-        //                         'target': url_to_index['url4']
-        //                     } 
-        //                 ] );
-
-        // console.log([{'source':1,'target':2}])
 
 
+        var test_URLObject = {   'url1':['url2'] ,
+                            'url2':['url3','url4'] ,
+                            'url3':['url5'] ,
+                            'url4':['url6'],
+                            'url5' : [],
+                            'url6': []
+                        };
 
-        // console.log(test_linkData);
-        // console.log(linkData);
-
-        
-        // console.log(test_linkData == linkData);
-
-        // for (URL in test_nodeData) {
-        //     console.log(test_nodeData[URL]);
-        // }
-
-        // console.log('break');
-
-        // for (link in test_linkData) {
-        //     console.log(test_nodeData[link])
-        // }
+        var test_url_to_index = createURLToIndex(test_URLObject)
+        var test_nodeData = createNodeData(test_URLObject);
+        var test_linkData = createLinkData(test_URLObject);
 
 
+        console.log(test_linkData);
+
+            var svg = d3.select("#d3Div").append("svg:svg")
+              .attr("width", 960)
+              .attr("height", 700);
+
+            // d3.select("#d3Div svg").remove();
+
+        createForceDirectedLayout(nodeData,linkData,svg,-120,30);
+
+//         function getMethods(object) {
+//             var methods = [];
+//             for (var m in object) {
+//                 if (typeof object[m] == 'function') {
+//                     methods.push(m);
+//                 }
+//             }
+//             return methods;
+// }
 
 
-        var svg = d3.select("#d3Div").append("svg:svg")
-          .attr("width", 960)
-          .attr("height", 700);
-
-        createForceDirectedLayout(nodeData,linkData,-120,30);
-
+// function randomNumberUpTo(n) {
+//     return Math.floor(Math.random()*n + 1);
+// }
         
 
         // console.log(createURLToIndex(URLObject));
 
+// function drawCircleOn(paper,x,y,url) {
+//     var circle = paper.circle(x, y, 20);
+//     circle.url = url;
+//     circle.xcoord = x;
+//     circle.ycoord = y;
+//     circle.attr({fill: "#8ED6FF", stroke: '#000', 'stroke-width': 3});
+    
+//     circle.hover( function(){
+//         circle.animate({'stroke-width': 6},100);
+//         console.log(circle.url);
+//     } , function(){
+//         circle.animate({'stroke-width': 3},100); 
+//     });
+
+// }
+
+
+// var URLdata = { 'url1': ['url2'] , 'url2': ['url3','url4'] , 'url3': [] , 'url4': [] };
+
+// var nodeData = [     {'index': 0, 'url': 'url0', 'x':100, 'y': 300},
+//                      {'index': 1, 'url': 'url1', 'x':300, 'y': 200},
+//                      {'index': 2, 'url': 'url2', 'x':200, 'y': 300}
+//                  ];
+
+// var linkData = [     {'source': 0, 'target':1},
+//                  {'source': 0, 'target':2} 
+//              ];
         
 
         
