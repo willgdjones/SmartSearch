@@ -42,6 +42,37 @@ self.port.on('widgetClicked',function createURLList(storedURLs){
 		}
 	})
 
+	var svg = d3.select("#d3Div").append("svg:svg")
+          .attr("width", 960)
+          .attr("height", 700);
+
+	var URLdata = [ {'url1':['url2']} , {'url2':['url3','url4']} , {'url3':[]} , {'url4':[]} ];
+	var nodeData = [ {'index': 0, 'x':100, 'y': 300}, {'index': 1, 'x':300, 'y':200}, {'index': 2, 'x': 200, 'y': 100}]
+
+	var force = d3.layout.force()
+    .charge(-120)
+    .distance(30)
+    .nodes(nodeData)
+    .size([500, 500])
+    .start();
+
+    var node = svg.selectAll("circle.node")
+    .data(nodeData)
+    .enter()
+   .append("svg:circle")
+    .style("fill", "#000")
+    .style("stroke", "#fff")
+    .attr("cx", function(d) { return d.x; })
+    .attr("cy", function(d) { return d.y; })
+    .attr("r", 10)
+    .call(force.drag);
+
+    force.on("tick", function() {
+  		node.attr("cx", function(d) { return d.x; })
+      	.attr("cy", function(d) { return d.y; });
+	});
+
+    
 
 
 
@@ -54,7 +85,10 @@ self.port.on('widgetClicked',function createURLList(storedURLs){
 
 
 
-	
+
+
+
+
 
 	// var paper = new Raphael(document.getElementById('raphaelDiv'),500,500);
 
