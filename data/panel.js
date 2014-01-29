@@ -58,7 +58,7 @@ self.port.on('widgetClicked',function createURLList(storedURLs){
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; })
         .attr("r", 5)
-        .on("click",function(d) {console.log(d.url)})
+        .on("mouseover",function(d) { $('#clickedNode').html( d.url )})
         .call(force.drag);
 
 
