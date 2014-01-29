@@ -53,8 +53,8 @@ self.port.on('widgetClicked',function createURLList(storedURLs){
         .data(nodeData)
         .enter()
       .append("svg:circle")
-        .style("fill", "#000")
-        .style("stroke", "#fff")
+        .style("fill", "#2A467E")
+        .style("stroke", "#d3d3d3")
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; })
         .attr("r", 5)
@@ -104,7 +104,8 @@ self.port.on('widgetClicked',function createURLList(storedURLs){
 	
 	var svg = d3.select("#d3Div").append("svg:svg")
 	    	.attr("width", 500)
-	        .attr("height", 500);
+	        .attr("height", 500)
+            .attr("color", 'blue');
 	   
 
     // var URLObject = {   'url1':['url2'] ,
